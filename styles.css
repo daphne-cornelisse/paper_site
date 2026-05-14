@@ -610,6 +610,14 @@ button {
   object-fit: cover;
 }
 
+.demo-frame [data-slide] {
+  display: none;
+}
+
+.demo-frame [data-slide].is-active {
+  display: block;
+}
+
 .demo-frame video {
   background: #10191e;
 }
