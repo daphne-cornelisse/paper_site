@@ -19,10 +19,10 @@
         <span>Human-like autonomy</span>
       </a>
       <nav class="site-nav" aria-label="Page sections">
+        <a href="#media">Rollouts</a>
         <a href="#overview">Overview</a>
-        <a href="#method">Method</a>
         <a href="#results">Results</a>
-        <a href="#media">Media</a>
+        <a href="#evaluation">Evaluation</a>
         <a href="#abstract">Abstract</a>
       </nav>
     </header>
@@ -33,7 +33,7 @@
           <img src="assets/hero-cartoon.png" alt="">
         </div>
         <div class="hero-content">
-          <p class="status-line">CoRL version · May 2026</p>
+          <p class="status-line">Manuscript · 2026</p>
           <h1 id="paper-title">
             Human-like autonomy emerges from self-play and a pinch of human data
           </h1>
@@ -51,12 +51,12 @@
             <sup>5</sup>Valeo
           </p>
           <p class="hero-copy">
-            We examine whether regularizing self-play RL toward a behavioral
-            cloning anchor, trained from a small amount of human demonstrations,
-            improves coordination with logged human driving trajectories.
+            We train driving policies with large-scale self-play simulation and
+            use a small amount of human demonstrations as an RL regularizer,
+            improving safe coordination with logged human driving trajectories.
           </p>
           <div class="hero-actions" aria-label="Paper links">
-            <a class="button primary" href="Human_like_autonomy_CORL.pdf">
+            <a class="button primary" href="Human_like_autonomy.pdf">
               Paper PDF
             </a>
             <a class="button" href="#citation">BibTeX</a>
@@ -68,179 +68,36 @@
 
       <section class="metrics-strip" aria-label="Headline results">
         <div class="metric">
+          <strong>99.4%</strong>
+          <span>safe task completion with human-replay proxies</span>
+        </div>
+        <div class="metric">
           <strong>125,000×</strong>
           <span>less human demonstration data than the imitation-learning baseline</span>
         </div>
         <div class="metric">
-          <strong>25×</strong>
-          <span>fewer GPU hours than the imitation-learning baseline</span>
-        </div>
-        <div class="metric">
-          <strong>30 yrs</strong>
-          <span>of simulated self-play experience</span>
+          <strong>20B</strong>
+          <span>self-play transitions, roughly 63 years of driving</span>
         </div>
         <div class="metric">
           <strong>30 min</strong>
-          <span>of demonstrations used to fit the RL anchor</span>
-        </div>
-      </section>
-
-      <section class="section intro-section" id="overview">
-        <div class="section-heading">
-          <p class="eyebrow">Summary</p>
-          <h2>A small behavioral cloning anchor improves coordination under human replay.</h2>
-        </div>
-        <div class="lede">
-          <p>
-            Self-play can produce high-performing closed-loop driving policies,
-            but task success in self-play does not imply compatibility with human
-            drivers. We regularize PPO self-play toward a behavioral cloning anchor
-            trained on a small subset of human demonstrations.
-          </p>
-          <p>
-            In held-out Waymo Open Motion scenarios, the resulting policies
-            improve coordination with logged human trajectories while retaining
-            robustness from large-scale simulated self-play.
-          </p>
-        </div>
-        <div class="detail-grid" aria-label="Approach details">
-          <article>
-            <h3>RL anchor</h3>
-            <p>
-              The anchor is fit once from demonstrations and used
-              during PPO updates; it complements rather than replaces self-play
-              experience.
-            </p>
-          </article>
-          <article>
-            <h3>Replay protocol</h3>
-            <p>
-              Held-out scenarios replay logged human agents while the learned
-              policy controls the vehicle, exposing coordination failures that
-              self-play metrics can miss.
-            </p>
-          </article>
-          <article>
-            <h3>Scaling study</h3>
-            <p>
-              The experiments vary map diversity, anchor dataset size, and
-              regularization strength to separate robustness from compatibility.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section method-section" id="method">
-        <div class="section-heading">
-          <p class="eyebrow">Method</p>
-          <h2>Self-play RL is regularized toward a behavioral cloning anchor.</h2>
-        </div>
-        <div class="method-layout">
-          <figure class="figure-panel">
-            <img
-              src="assets/hero-cartoon.png"
-              alt="Cartoon showing a small amount of human data being added to experience generated through self-play reinforcement learning."
-            >
-            <figcaption>
-              The behavioral cloning anchor biases self-play away from effective but
-              human-incompatible equilibria.
-            </figcaption>
-          </figure>
-          <div class="method-notes">
-            <article>
-              <span>1</span>
-              <h3>Fit the anchor</h3>
-              <p>
-                Fit a compact behavioral cloning policy to a selected subset of
-                human driving demonstrations.
-              </p>
-            </article>
-            <article>
-              <span>2</span>
-              <h3>Optimize in self-play</h3>
-              <p>
-                Train PPO in multi-agent simulation, exposing the policy to a
-                broad distribution of interactive states.
-              </p>
-            </article>
-            <article>
-              <span>3</span>
-              <h3>Constrain policy updates</h3>
-              <p>
-                Penalize divergence from the anchor, allowing task-directed RL
-                while biasing behavior toward human driving conventions.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section evaluation-section">
-        <div class="section-heading">
-          <p class="eyebrow">Evaluation</p>
-          <h2>Human compatibility is evaluated against logged human trajectories.</h2>
-        </div>
-        <figure class="figure-panel scroll-figure">
-          <img
-            src="assets/figure-eval-settings.png"
-            alt="Diagram comparing self-play evaluation, human-replay collision events, and human-replay at-fault collision events."
-          >
-          <figcaption>
-            The evaluation distinguishes all collisions from at-fault collisions,
-            since logged agents in replay can collide with the controlled vehicle
-            from behind.
-          </figcaption>
-        </figure>
-      </section>
-
-      <section class="section results-section" id="results">
-        <div class="section-heading">
-          <p class="eyebrow">Results</p>
-          <h2>Regularization improves human-replay performance using limited demonstration data.</h2>
-        </div>
-
-        <div class="result-grid">
-          <figure class="figure-panel scroll-figure span-full">
-            <img
-              src="assets/figure-data-requirements.png"
-              alt="Plots showing collision rates and human-coordination gap across self-play training maps and different human anchor sizes."
-            >
-            <figcaption>
-              Scaling with scenario diversity and anchor dataset size.
-              Increasing map diversity improves robustness, while the anchor
-              reduces the self-play to human-replay transfer gap.
-            </figcaption>
-          </figure>
-
-          <figure class="figure-panel scroll-figure">
-            <img
-              src="assets/figure-eval-anchor.png"
-              alt="Chart showing open-loop and closed-loop behavior for anchor behavioral cloning policies."
-            >
-            <figcaption>
-              The behavioral cloning anchor improves with additional
-              demonstration data, but regularized self-play does not require a
-              large imitation dataset.
-            </figcaption>
-          </figure>
-
-          <figure class="figure-panel scroll-figure">
-            <img
-              src="assets/figure-compatibility-tradeoff.png"
-              alt="Chart showing the compatibility tradeoff for different training settings."
-            >
-            <figcaption>
-              The regularization coefficient exposes a practical tradeoff between
-              task performance and human-compatible behavior.
-            </figcaption>
-          </figure>
+          <span>of demonstrations used as an RL regularizer</span>
         </div>
       </section>
 
       <section class="section media-section" id="media">
         <div class="section-heading">
           <p class="eyebrow">Rollouts</p>
-          <h2>Qualitative rollouts illustrate policy behavior under replay.</h2>
+          <div>
+            <h2>Qualitative rollouts illustrate policy behavior under replay.</h2>
+            <p class="media-explainer">
+              Each rollout is a held-out human-replay scenario: only the blue ego
+              vehicle is controlled by the learned policy, while green vehicles
+              replay recorded human trajectories. The agent is goal-conditioned
+              on the target destination; when the ego vehicle collides, it is
+              colored red. Use the arrows in each card to switch examples.
+            </p>
+          </div>
         </div>
         <div class="media-grid">
           <article class="media-slot">
@@ -410,6 +267,116 @@
         </div>
       </section>
 
+      <section class="section intro-section" id="overview">
+        <div class="section-heading">
+          <p class="eyebrow">Summary</p>
+          <h2>A small amount of human data regularizes self-play toward human-compatible driving.</h2>
+        </div>
+        <div class="lede">
+          <p>
+            Self-play RL can scale through simulated experience, but policies
+            trained only against themselves may adopt driving conventions that do
+            not coordinate with human drivers. We regularize PPO self-play toward
+            a behavioral cloning anchor trained from a small demonstration set.
+          </p>
+          <p>
+            In held-out Waymo Open Motion scenarios, adding approximately 30
+            minutes of human demonstrations improves safe task completion under
+            human replay to 0.994, outperforming both unregularized self-play and
+            the imitation-learning baseline.
+          </p>
+        </div>
+        <div class="detail-grid" aria-label="Approach details">
+          <article>
+            <h3>RL regularizer</h3>
+            <p>
+              The behavioral cloning anchor is fit once from demonstrations and
+              used during PPO updates; it complements rather than replaces
+              self-play experience.
+            </p>
+          </article>
+          <article>
+            <h3>Human replay</h3>
+            <p>
+              Held-out scenes replay logged human agents while the learned
+              policy controls the ego vehicle, exposing coordination failures
+              that self-play evaluation can miss.
+            </p>
+          </article>
+          <article>
+            <h3>Scaling study</h3>
+            <p>
+              The experiments vary map diversity, demonstration data from 30
+              minutes to 3 hours, and regularization strength to study the
+              human-data scaling behavior.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section evaluation-section" id="evaluation">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluation</p>
+          <h2>Human compatibility is measured by safe task completion under replay.</h2>
+        </div>
+        <figure class="figure-panel scroll-figure">
+          <img
+            src="assets/figure-eval-settings.png"
+            alt="Diagram comparing self-play evaluation, human-replay collision events, and human-replay at-fault collision events."
+          >
+          <figcaption>
+            Safe task completion combines task completion with at-fault
+            collisions, distinguishing failures caused by the learned policy from
+            collisions initiated by replayed human agents.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section results-section" id="results">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2>Regularized self-play improves safe coordination with a fraction of the human data.</h2>
+        </div>
+
+        <div class="result-grid">
+          <figure class="figure-panel scroll-figure span-full">
+            <img
+              src="assets/figure-safe-coordination.png"
+              alt="Plots comparing safe task completion against human demonstration data and total training transitions for regularized self-play, self-play, and imitation-learning baselines."
+            >
+            <figcaption>
+              Headline result from the current manuscript. Regularized self-play
+              reaches 0.994 safe task completion with 20B self-play transitions
+              and roughly 30 minutes of demonstrations, outperforming both
+              unregularized self-play and the imitation-learning baseline.
+            </figcaption>
+          </figure>
+
+          <figure class="figure-panel scroll-figure">
+            <img
+              src="assets/figure-eval-anchor.png"
+              alt="Chart showing open-loop and closed-loop behavior for anchor behavioral cloning policies."
+            >
+            <figcaption>
+              The behavioral cloning anchor improves with additional
+              demonstration data, but regularized self-play remains far below the
+              human-data scale used by imitation-learning baselines.
+            </figcaption>
+          </figure>
+
+          <figure class="figure-panel scroll-figure">
+            <img
+              src="assets/figure-compatibility-tradeoff.png"
+              alt="Chart showing the compatibility tradeoff for different training settings."
+            >
+            <figcaption>
+              The regularization coefficient controls the tradeoff between the
+              self-play objective and behavior compatible with human replay.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section class="section abstract-section" id="abstract">
         <div class="section-heading">
           <p class="eyebrow">Abstract</p>
@@ -417,19 +384,18 @@
         </div>
         <div class="abstract-copy">
           <p>
-            Self-play reinforcement learning can train autonomous driving
-            policies from large-scale simulated experience, reducing dependence
-            on extensive human demonstration datasets. However, policies trained
-            only through self-play can adopt conventions that do not transfer
-            reliably to human-replay evaluation.
+            Self-play reinforcement learning can use large-scale simulation in
+            place of large human demonstration datasets, but policies trained
+            only through self-play can behave unpredictably around unseen human
+            policies. Prior work often addresses this through reward engineering
+            and domain randomization.
           </p>
           <p>
-            We train driving policies with a minimal reward function, over 30
-            years of simulated self-play experience, and 30 minutes of human
-            demonstrations. In human-replay evaluation, the resulting agents
-            coordinate with logged human trajectories while using 125,000× less
-            human data and 25× fewer GPU hours than imitation-learning
-            baselines.
+            We train driving policies with a minimal reward function, over 60
+            years of self-play simulation, and 30 minutes of human
+            demonstrations. The resulting agents coordinate with logged human
+            trajectories while using 125,000× less human data and 25× fewer GPU
+            hours than imitation-learning baselines.
           </p>
         </div>
       </section>
@@ -445,7 +411,7 @@
   author = {Cornelisse, Daphne and Hunt, Julian and Zhang, Zixu and Doulazmi, Wa{\"e}l and Joseph, Kevin and {Fern{\'a}ndez Fisac}, Jaime and Vinitsky, Eugene},
   year   = {2026},
   month  = may,
-  note   = {CoRL submission}
+  note   = {Manuscript}
 }</code></pre>
           <button class="copy-button" type="button" data-copy="#bibtex">Copy BibTeX</button>
         </div>
@@ -454,7 +420,7 @@
 
     <footer class="site-footer">
       <p>
-        Draft website for the CoRL submission. Citation will be updated after
+        Project website for the manuscript. Citation will be updated after
         publication.
       </p>
     </footer>
