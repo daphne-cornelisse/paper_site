@@ -1,6 +1,6 @@
 # Human-like autonomy paper site
 
-Static project website for:
+Static project website for spiced self-play in:
 
 **Human-like autonomy emerges from self-play and a pinch of human data**
 

@@ -6,7 +6,7 @@
     <title>Human-like autonomy emerges from self-play and a pinch of human data</title>
     <meta
       name="description"
-      content="Project website for Human-like autonomy emerges from self-play and a pinch of human data."
+      content="Project website for spiced self-play in Human-like autonomy emerges from self-play and a pinch of human data."
     >
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -51,9 +51,10 @@
             <sup>5</sup>Valeo
           </p>
           <p class="hero-copy">
-            We train driving policies with large-scale self-play simulation and
-            use a small amount of human demonstrations as an RL regularizer,
-            improving safe coordination with logged human driving trajectories.
+            Spiced self-play combines over 60 years of simulated self-play with
+            30 minutes of human driving data as a behavioral anchor, improving
+            coordination with logged human trajectories without reward
+            engineering or domain randomization.
           </p>
           <div class="hero-actions" aria-label="Paper links">
             <a class="button primary" href="Human_like_autonomy.pdf">
@@ -72,16 +73,16 @@
           <span>safe task completion with human-replay proxies</span>
         </div>
         <div class="metric">
-          <strong>125,000×</strong>
-          <span>less human demonstration data than the imitation-learning baseline</span>
+          <strong>2,500×</strong>
+          <span>less human driving data than imitation-learning baselines</span>
         </div>
         <div class="metric">
           <strong>20B</strong>
           <span>self-play transitions, roughly 63 years of driving</span>
         </div>
         <div class="metric">
-          <strong>30 min</strong>
-          <span>of demonstrations used as an RL regularizer</span>
+          <strong>15 hrs</strong>
+          <span>end-to-end training on one consumer GPU</span>
         </div>
       </section>
 
@@ -106,15 +107,15 @@
                 class="is-active"
                 data-slide
                 src="reg_self_play_pufferdrive_demos/reg_good/wait_for_pedestrian.gif"
-                alt="Regularized policy slowing and waiting for a pedestrian."
+                alt="Spiced policy slowing and waiting for a pedestrian."
               >
               <img
                 data-slide
                 hidden
                 src="reg_self_play_pufferdrive_demos/reg_good/cb75c7b3-b20e-50.gif"
-                alt="Additional regularized rollout in human-replay evaluation."
+                alt="Additional spiced rollout in human-replay evaluation."
               >
-              <p>Regularized · human-replay</p>
+              <p>Spiced · human-replay</p>
               <div class="carousel-controls" aria-label="Waiting for a pedestrian clips">
                 <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
                 <span data-carousel-count>1 / 2</span>
@@ -122,7 +123,7 @@
               </div>
             </div>
             <h3>Waiting for a pedestrian</h3>
-            <p>The regularized policy completes the scenario while yielding an interaction that is more readily anticipated.</p>
+            <p>The spiced policy completes the scenario while yielding an interaction that is more readily anticipated.</p>
           </article>
           <article class="media-slot">
             <div class="media-frame demo-frame" data-carousel>
@@ -146,7 +147,7 @@
                 playsinline
                 preload="metadata"
               ></video>
-              <p>Regularized · rollout</p>
+              <p>Spiced · rollout</p>
               <div class="carousel-controls" aria-label="Coordinated interaction clips">
                 <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
                 <span data-carousel-count>1 / 2</span>
@@ -154,7 +155,7 @@
               </div>
             </div>
             <h3>Coordinated interaction</h3>
-            <p>Regularized self-play remains task-effective while staying close to the behavior induced by the anchor.</p>
+            <p>Spiced self-play remains task-effective while staying close to behavior induced by the human-data anchor.</p>
           </article>
           <article class="media-slot">
             <div class="media-frame demo-frame" data-carousel>
@@ -206,7 +207,7 @@
               </div>
             </div>
             <h3>Transfer failure under replay</h3>
-            <p>Without the RL anchor, self-play may converge to behaviors that transfer poorly to human-replay evaluation.</p>
+            <p>Without the human-data anchor, self-play may converge to behaviors that transfer poorly to human-replay evaluation.</p>
           </article>
           <article class="media-slot">
             <div class="media-frame demo-frame" data-carousel>
@@ -214,15 +215,15 @@
                 class="is-active"
                 data-slide
                 src="reg_self_play_pufferdrive_demos/reg_failures/714d0c80-bedc-51.gif"
-                alt="Regularized policy failure example."
+                alt="Spiced policy failure example."
               >
               <img
                 data-slide
                 hidden
                 src="reg_self_play_pufferdrive_demos/reg_failures/a0774ac1-bb6c-58.gif"
-                alt="Additional regularized policy failure example."
+                alt="Additional spiced policy failure example."
               >
-              <p>Regularized · failure</p>
+              <p>Spiced · failure</p>
               <div class="carousel-controls" aria-label="Remaining failure clips">
                 <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
                 <span data-carousel-count>1 / 2</span>
@@ -262,7 +263,7 @@
               </div>
             </div>
             <h3>Demonstration data</h3>
-            <p>Expert SDC replays illustrate the demonstrations used to fit the behavioral cloning anchor.</p>
+            <p>Expert SDC replays illustrate the demonstrations used to fit the behavioral anchor.</p>
           </article>
         </div>
       </section>
@@ -270,29 +271,31 @@
       <section class="section intro-section" id="overview">
         <div class="section-heading">
           <p class="eyebrow">Summary</p>
-          <h2>A small amount of human data regularizes self-play toward human-compatible driving.</h2>
+          <h2>Spiced self-play uses a pinch of human data to steer scalable self-play toward human-compatible driving.</h2>
         </div>
         <div class="lede">
           <p>
             Self-play RL can scale through simulated experience, but policies
-            trained only against themselves may adopt driving conventions that do
-            not coordinate with human drivers. We regularize PPO self-play toward
-            a behavioral cloning anchor trained from a small demonstration set.
+            trained only against themselves may adopt effective driving
+            conventions that do not coordinate with human drivers. Spiced
+            self-play keeps self-play as the main training engine and adds a
+            small behavioral cloning anchor from human driving data.
           </p>
           <p>
-            In held-out Waymo Open Motion scenarios, adding approximately 30
-            minutes of human demonstrations improves safe task completion under
-            human replay to 0.994, outperforming both unregularized self-play and
-            the imitation-learning baseline.
+            With 30 minutes of Waymo human driving data and 20B self-play
+            transitions, spiced policies reach 0.994 safe task completion under
+            human replay, outperforming both unregularized self-play and
+            SMART-tiny CLSFT while avoiding reward engineering and domain
+            randomization.
           </p>
         </div>
         <div class="detail-grid" aria-label="Approach details">
           <article>
-            <h3>RL regularizer</h3>
+            <h3>Spiced objective</h3>
             <p>
-              The behavioral cloning anchor is fit once from demonstrations and
-              used during PPO updates; it complements rather than replaces
-              self-play experience.
+              PPO training uses a minimal safe-goal-reaching reward, while the
+              behavioral anchor keeps updates close to conventions observed in a
+              small human dataset.
             </p>
           </article>
           <article>
@@ -304,11 +307,11 @@
             </p>
           </article>
           <article>
-            <h3>Scaling study</h3>
+            <h3>Data scaling</h3>
             <p>
-              The experiments vary map diversity, demonstration data from 30
-              minutes to 3 hours, and regularization strength to study the
-              human-data scaling behavior.
+              The experiments vary map diversity and human driving data from
+              minutes to full-dataset references to measure when coordination
+              emerges.
             </p>
           </article>
         </div>
@@ -335,20 +338,21 @@
       <section class="section results-section" id="results">
         <div class="section-heading">
           <p class="eyebrow">Results</p>
-          <h2>Regularized self-play improves safe coordination with a fraction of the human data.</h2>
+          <h2>Spiced self-play improves safe coordination with a fraction of the human data.</h2>
         </div>
 
         <div class="result-grid">
           <figure class="figure-panel scroll-figure span-full">
             <img
               src="assets/figure-safe-coordination.png"
-              alt="Plots comparing safe task completion against human demonstration data and total training transitions for regularized self-play, self-play, and imitation-learning baselines."
+              alt="Plots comparing safe task completion, total training transitions, and trajectory behavior for spiced self-play, self-play, and imitation-learning baselines."
             >
             <figcaption>
-              Headline result from the current manuscript. Regularized self-play
+              Headline result from the current manuscript. Spiced self-play
               reaches 0.994 safe task completion with 20B self-play transitions
-              and roughly 30 minutes of demonstrations, outperforming both
-              unregularized self-play and the imitation-learning baseline.
+              and roughly 30 minutes of human driving data, improving over
+              unregularized self-play while using 2,500× less human data than
+              imitation-learning baselines.
             </figcaption>
           </figure>
 
@@ -358,20 +362,21 @@
               alt="Chart showing open-loop and closed-loop behavior for anchor behavioral cloning policies."
             >
             <figcaption>
-              The behavioral cloning anchor improves with additional
-              demonstration data, but regularized self-play remains far below the
-              human-data scale used by imitation-learning baselines.
+              Anchor diagnostics show open-loop accuracy improves with more
+              human driving data, while closed-loop route progress and score
+              remain strong under both self-play and human replay.
             </figcaption>
           </figure>
 
           <figure class="figure-panel scroll-figure">
             <img
-              src="assets/figure-compatibility-tradeoff.png"
-              alt="Chart showing the compatibility tradeoff for different training settings."
+              src="assets/figure-collision-severity.png"
+              alt="Charts comparing collision severity distributions for unregularized and spiced self-play policies."
             >
             <figcaption>
-              The regularization coefficient controls the tradeoff between the
-              self-play objective and behavior compatible with human replay.
+              Spiced policies also change the character of failures: collisions
+              are less severe on average and concentrate at lower per-event speed
+              changes than the unregularized self-play baseline.
             </figcaption>
           </figure>
         </div>
@@ -380,22 +385,23 @@
       <section class="section abstract-section" id="abstract">
         <div class="section-heading">
           <p class="eyebrow">Abstract</p>
-          <h2>Self-play policies are regularized toward a lightweight behavioral cloning anchor.</h2>
+          <h2>Spiced self-play adds a small behavioral anchor to scalable self-play.</h2>
         </div>
         <div class="abstract-copy">
           <p>
-            Self-play reinforcement learning can use large-scale simulation in
-            place of large human demonstration datasets, but policies trained
-            only through self-play can behave unpredictably around unseen human
-            policies. Prior work often addresses this through reward engineering
-            and domain randomization.
+            Self-play reinforcement learning can substitute cheap, large-scale
+            simulation for large human driving datasets, but policies trained
+            only through self-play can converge to effective yet incompatible
+            driving conventions. Prior work often addresses this through reward
+            engineering and domain randomization.
           </p>
           <p>
-            We train driving policies with a minimal reward function, over 60
-            years of self-play simulation, and 30 minutes of human
-            demonstrations. The resulting agents coordinate with logged human
-            trajectories while using 125,000× less human data and 25× fewer GPU
-            hours than imitation-learning baselines.
+            We introduce spiced self-play: policies trained with a minimal
+            safe-goal-reaching reward, over 60 years of self-play simulation, and
+            30 minutes of human driving data as a behavioral anchor. The
+            resulting policies coordinate with logged human trajectories using
+            2,500× less human data than imitation-learning baselines, and the
+            full pipeline runs in 15 hours on a single consumer-grade GPU.
           </p>
         </div>
       </section>
