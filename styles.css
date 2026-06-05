@@ -222,10 +222,10 @@ button {
 }
 
 .hero h1 {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0;
-  font-size: 4.85rem;
-  line-height: 1;
+  font-size: 4.45rem;
+  line-height: 1.02;
   letter-spacing: 0;
   overflow-wrap: break-word;
   text-wrap: balance;
@@ -750,7 +750,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 4rem;
+    font-size: 3.65rem;
   }
 
   .hero-art {
@@ -820,7 +820,7 @@ button {
 
   .hero h1 {
     max-width: 650px;
-    font-size: 3.25rem;
+    font-size: 3rem;
     line-height: 1.04;
   }
 
@@ -904,7 +904,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 2.42rem;
+    font-size: 2.25rem;
     line-height: 1.06;
   }
 
