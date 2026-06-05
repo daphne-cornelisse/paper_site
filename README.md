@@ -24,6 +24,10 @@ This is a plain static site. In Vercel, import the GitHub repo and use:
 
 Vercel will serve `index.html` from the repository root.
 
+Web Analytics is wired through Vercel's static-site script in `index.html`.
+Enable Web Analytics for the project in the Vercel dashboard, then redeploy and
+visit the production URL to start collecting page views.
+
 For a more descriptive default Vercel URL, rename the Vercel project to
 something like `human-like-autonomy` or `hla-self-play` if the subdomain is
 available. A custom domain can also be added from the Vercel project settings;
