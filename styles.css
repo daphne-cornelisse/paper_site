@@ -511,6 +511,101 @@ button {
   font-size: 1.05rem;
 }
 
+.comparison-grid,
+.failure-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.failure-comparison-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.comparison-card {
+  overflow: hidden;
+  border: 1px solid rgba(23, 32, 37, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.comparison-card.is-featured {
+  grid-column: 1 / -1;
+}
+
+.comparison-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: #0f171b;
+}
+
+.comparison-panel {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin: 0;
+  background: #10191e;
+}
+
+.comparison-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.comparison-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 7px 10px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.comparison-label-spiced {
+  background: rgba(8, 119, 189, 0.9);
+  box-shadow: 0 0 0 1px rgba(199, 230, 255, 0.3) inset;
+}
+
+.comparison-label-unreg {
+  background: rgba(15, 23, 27, 0.88);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.comparison-body {
+  padding: 17px 18px 19px;
+}
+
+.comparison-kicker {
+  margin: 0 0 8px;
+  color: var(--blue-deep);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.comparison-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+  line-height: 1.18;
+}
+
+.comparison-body p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
 .media-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -863,6 +958,8 @@ button {
     margin-bottom: 30px;
   }
 
+  .comparison-grid,
+  .failure-comparison-grid,
   .media-grid {
     grid-template-columns: 1fr;
   }
@@ -874,6 +971,10 @@ button {
   .scroll-figure img {
     width: 820px;
     max-width: none;
+  }
+
+  .comparison-body {
+    padding: 15px 16px 17px;
   }
 }
 
@@ -969,6 +1070,21 @@ button {
 
   .section-heading h2 {
     font-size: 2.05rem;
+  }
+
+  .comparison-label {
+    top: 8px;
+    left: 8px;
+    font-size: 0.62rem;
+    padding: 6px 8px;
+  }
+
+  .comparison-body h3 {
+    font-size: 1rem;
+  }
+
+  .comparison-body p:last-child {
+    font-size: 0.92rem;
   }
 
   .scroll-figure img {

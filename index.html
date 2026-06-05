@@ -90,180 +90,140 @@
         <div class="section-heading">
           <p class="eyebrow">Rollouts</p>
           <div>
-            <h2>Qualitative rollouts illustrate policy behavior under replay.</h2>
+            <h2>Paired rollouts compare spiced and unregularized policy behavior.</h2>
             <p class="media-explainer">
-              Each rollout is a held-out human-replay scenario: only the blue ego
-              vehicle is controlled by the learned policy, while green vehicles
-              replay recorded human trajectories. The agent is goal-conditioned
-              on the target destination; when the ego vehicle collides, it is
-              colored red. Use the arrows in each card to switch examples.
+              Each card shows the same held-out human-replay scenario with the
+              spiced policy on the left and the unregularized policy on the
+              right. The blue ego vehicle is controlled by the learned policy,
+              while green vehicles replay recorded human trajectories.
             </p>
           </div>
         </div>
-        <div class="media-grid">
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <img
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/reg_good/wait_for_pedestrian.gif"
-                alt="Spiced policy slowing and waiting for a pedestrian."
-              >
-              <img
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/reg_good/cb75c7b3-b20e-50.gif"
-                alt="Additional spiced rollout in human-replay evaluation."
-              >
-              <p>Spiced · human-replay</p>
-              <div class="carousel-controls" aria-label="Waiting for a pedestrian clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+        <div class="comparison-grid">
+          <article class="comparison-card is-featured">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/312_reg.gif" alt="Spiced policy in paired example 312.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/312_unreg.gif" alt="Unregularized policy in paired example 312.">
+              </figure>
             </div>
-            <h3>Waiting for a pedestrian</h3>
-            <p>The spiced policy completes the scenario while yielding an interaction that is more readily anticipated.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 312</p>
+              <h3>Negotiating cross traffic</h3>
+              <p>Spiced self-play keeps a more legible path through the interaction, while the unregularized policy presses more directly toward the goal.</p>
+            </div>
           </article>
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <video
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/reg_good/75d8e4eadceb6885.mp4"
-                controls
-                muted
-                loop
-                playsinline
-                preload="metadata"
-              ></video>
-              <video
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/reg_good/a35e0439b5988353.mp4"
-                controls
-                muted
-                loop
-                playsinline
-                preload="metadata"
-              ></video>
-              <p>Spiced · rollout</p>
-              <div class="carousel-controls" aria-label="Coordinated interaction clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/420_reg.gif" alt="Spiced policy in paired example 420.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/420_unreg.gif" alt="Unregularized policy in paired example 420.">
+              </figure>
             </div>
-            <h3>Coordinated interaction</h3>
-            <p>Spiced self-play remains task-effective while staying close to behavior induced by the human-data anchor.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 420</p>
+              <h3>Dense queue interaction</h3>
+              <p>The spiced policy stays with the flow of replayed vehicles; the unregularized policy is less patient in the same scene.</p>
+            </div>
           </article>
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <img
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/unreg_not_fail_but_alien/threading_the_needle_fast.gif"
-                alt="Unregularized self-play policy moving quickly through traffic."
-              >
-              <img
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/unreg_not_fail_but_alien/threading_the_needle_slow.gif"
-                alt="Slower view of an unregularized self-play policy moving through traffic."
-              >
-              <p>Unregularized · atypical</p>
-              <div class="carousel-controls" aria-label="Atypical successful rollout clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/460_reg.gif" alt="Spiced policy in paired example 460.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/460_unreg.gif" alt="Unregularized policy in paired example 460.">
+              </figure>
             </div>
-            <h3>Atypical successful rollout</h3>
-            <p>An unregularized policy can complete the scenario using maneuvers that are less consistent with logged human behavior.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 460</p>
+              <h3>Waiting in traffic</h3>
+              <p>With the human-data anchor, the ego vehicle is more willing to wait instead of exploiting every narrow opening.</p>
+            </div>
           </article>
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <img
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/unreg_failures/dc85ad18167fcb53.gif"
-                alt="Unregularized policy failure example."
-              >
-              <video
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/unreg_failures/261630aacad8e4f8.mp4"
-                controls
-                muted
-                loop
-                playsinline
-                preload="metadata"
-              ></video>
-              <p>Unregularized · transfer</p>
-              <div class="carousel-controls" aria-label="Transfer failure clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/102_reg.gif" alt="Spiced policy in paired example 102.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/102_unreg.gif" alt="Unregularized policy in paired example 102.">
+              </figure>
             </div>
-            <h3>Transfer failure under replay</h3>
-            <p>Without the human-data anchor, self-play may converge to behaviors that transfer poorly to human-replay evaluation.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 102</p>
+              <h3>Awkward behavior avoided</h3>
+              <p>The unregularized rollout can avoid impact while still behaving awkwardly; spiced self-play produces a smoother interaction.</p>
+            </div>
           </article>
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <img
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/reg_failures/714d0c80-bedc-51.gif"
-                alt="Spiced policy failure example."
-              >
-              <img
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/reg_failures/a0774ac1-bb6c-58.gif"
-                alt="Additional spiced policy failure example."
-              >
-              <p>Spiced · failure</p>
-              <div class="carousel-controls" aria-label="Remaining failure clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/111_reg.gif" alt="Spiced policy in paired example 111.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/111_unreg.gif" alt="Unregularized policy in paired example 111.">
+              </figure>
             </div>
-            <h3>Remaining failure case</h3>
-            <p>Human-replay remains an imperfect proxy for deployment, and some interactions remain unresolved.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 111</p>
+              <h3>Less goal-rush behavior</h3>
+              <p>The spiced policy remains closer to ordinary traffic flow, while unregularized self-play more aggressively accelerates toward the target.</p>
+            </div>
           </article>
-          <article class="media-slot">
-            <div class="media-frame demo-frame" data-carousel>
-              <video
-                class="is-active"
-                data-slide
-                src="reg_self_play_pufferdrive_demos/inferred_expert_sdc/14d9a71cba4b4b26.mp4"
-                controls
-                muted
-                loop
-                playsinline
-                preload="metadata"
-              ></video>
-              <video
-                data-slide
-                hidden
-                src="reg_self_play_pufferdrive_demos/inferred_expert_sdc/7e4928a4d8570ae5.mp4"
-                controls
-                muted
-                loop
-                playsinline
-                preload="metadata"
-              ></video>
-              <p>Demonstration replay</p>
-              <div class="carousel-controls" aria-label="Demonstration replay clips">
-                <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous clip">‹</button>
-                <span data-carousel-count>1 / 2</span>
-                <button class="carousel-button" type="button" data-carousel-next aria-label="Next clip">›</button>
-              </div>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/166_reg.gif" alt="Spiced policy in paired example 166.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/166_unreg.gif" alt="Unregularized policy in paired example 166.">
+              </figure>
             </div>
-            <h3>Demonstration data</h3>
-            <p>Expert SDC replays illustrate the demonstrations used to fit the behavioral anchor.</p>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 166</p>
+              <h3>Highway pacing</h3>
+              <p>The unregularized policy tends to close gaps quickly, while the spiced policy tracks surrounding traffic more conservatively.</p>
+            </div>
+          </article>
+
+          <article class="comparison-card">
+            <div class="comparison-pair">
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-spiced">Spiced</span>
+                <img src="comparison_selected/382_reg.gif" alt="Spiced policy in paired example 382.">
+              </figure>
+              <figure class="comparison-panel">
+                <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                <img src="comparison_selected/382_unreg.gif" alt="Unregularized policy in paired example 382.">
+              </figure>
+            </div>
+            <div class="comparison-body">
+              <p class="comparison-kicker">Example 382</p>
+              <h3>Social spacing</h3>
+              <p>The paired replay highlights the behavioral difference behind the aggregate social-driving metrics.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -367,6 +327,44 @@
               changes than the unregularized self-play baseline.
             </figcaption>
           </figure>
+
+          <div class="failure-comparison-grid span-full" aria-label="Failure comparison rollouts">
+            <article class="comparison-card">
+              <div class="comparison-pair">
+                <figure class="comparison-panel">
+                  <span class="comparison-label comparison-label-spiced">Spiced</span>
+                  <img src="comparison_selected/210_reg.gif" alt="Spiced policy failure comparison in example 210.">
+                </figure>
+                <figure class="comparison-panel">
+                  <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                  <img src="comparison_selected/210_unreg.gif" alt="Unregularized policy failure comparison in example 210.">
+                </figure>
+              </div>
+              <div class="comparison-body">
+                <p class="comparison-kicker">Failure example 210</p>
+                <h3>Different collisions in the same scene</h3>
+                <p>Both policies fail in replay, but the paired rollout shows how the interaction geometry changes between spiced and unregularized self-play.</p>
+              </div>
+            </article>
+
+            <article class="comparison-card">
+              <div class="comparison-pair">
+                <figure class="comparison-panel">
+                  <span class="comparison-label comparison-label-spiced">Spiced</span>
+                  <img src="comparison_selected/607_reg.gif" alt="Spiced policy failure comparison in example 607.">
+                </figure>
+                <figure class="comparison-panel">
+                  <span class="comparison-label comparison-label-unreg">Unregularized</span>
+                  <img src="comparison_selected/607_unreg.gif" alt="Unregularized policy failure comparison in example 607.">
+                </figure>
+              </div>
+              <div class="comparison-body">
+                <p class="comparison-kicker">Failure example 607</p>
+                <h3>Representative replay failure</h3>
+                <p>This pair illustrates a remaining failure mode under human replay, including cases where the controlled vehicle is contacted from behind.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
