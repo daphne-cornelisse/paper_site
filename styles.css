@@ -224,7 +224,7 @@ button {
 .hero h1 {
   max-width: 680px;
   margin: 0;
-  font-size: 4.45rem;
+  font-size: 4.16rem;
   line-height: 1.02;
   letter-spacing: 0;
   overflow-wrap: break-word;
@@ -514,12 +514,8 @@ button {
 .comparison-grid,
 .failure-comparison-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
-}
-
-.failure-comparison-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .comparison-card {
@@ -845,7 +841,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 3.65rem;
+    font-size: 3.44rem;
   }
 
   .hero-art {
@@ -915,7 +911,7 @@ button {
 
   .hero h1 {
     max-width: 650px;
-    font-size: 3rem;
+    font-size: 2.84rem;
     line-height: 1.04;
   }
 
@@ -1005,7 +1001,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 2.12rem;
     line-height: 1.06;
   }
 
