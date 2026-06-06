@@ -501,7 +501,7 @@ button {
 }
 
 .media-section {
-  width: min(1240px, calc(100% - var(--page-inset)));
+  width: min(1360px, calc(100% - var(--page-inset)));
 }
 
 .media-explainer {
@@ -514,7 +514,7 @@ button {
 .comparison-grid,
 .failure-comparison-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -562,11 +562,11 @@ button {
   z-index: 2;
   border-radius: 999px;
   color: white;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0;
   line-height: 1;
-  padding: 7px 10px;
+  padding: 7px 9px;
   text-transform: uppercase;
   backdrop-filter: blur(10px);
 }
@@ -1077,6 +1077,10 @@ button {
     left: 8px;
     font-size: 0.62rem;
     padding: 6px 8px;
+  }
+
+  .comparison-pair {
+    grid-template-columns: 1fr;
   }
 
   .comparison-body h3 {

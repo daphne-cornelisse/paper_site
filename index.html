@@ -90,10 +90,10 @@
         <div class="section-heading">
           <p class="eyebrow">Rollouts</p>
           <div>
-            <h2>Paired rollouts compare spiced and unregularized policy behavior.</h2>
+            <h2>Paired rollouts compare regularized and unregularized policy behavior.</h2>
             <p class="media-explainer">
               Each card shows the same held-out human-replay scenario with the
-              spiced policy on the left and the unregularized policy on the
+              regularized policy on the left and the unregularized policy on the
               right. The blue ego vehicle is controlled by the learned policy,
               while green vehicles replay recorded human trajectories.
             </p>
@@ -103,8 +103,8 @@
           <article class="comparison-card is-featured">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/312_reg.gif" alt="Spiced policy in paired example 312.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/312_reg.gif" alt="Regularized policy in paired example 312.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -114,15 +114,15 @@
             <div class="comparison-body">
               <p class="comparison-kicker">Example 312</p>
               <h3>Negotiating cross traffic</h3>
-              <p>Spiced self-play keeps a more legible path through the interaction, while the unregularized policy presses more directly toward the goal.</p>
+              <p>Regularized self-play keeps a more legible path through the interaction, while the unregularized policy presses more directly toward the goal.</p>
             </div>
           </article>
 
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/420_reg.gif" alt="Spiced policy in paired example 420.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/420_reg.gif" alt="Regularized policy in paired example 420.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -132,15 +132,15 @@
             <div class="comparison-body">
               <p class="comparison-kicker">Example 420</p>
               <h3>Dense queue interaction</h3>
-              <p>The spiced policy stays with the flow of replayed vehicles; the unregularized policy is less patient in the same scene.</p>
+              <p>The regularized policy stays with the flow of replayed vehicles; the unregularized policy is less patient in the same scene.</p>
             </div>
           </article>
 
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/460_reg.gif" alt="Spiced policy in paired example 460.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/460_reg.gif" alt="Regularized policy in paired example 460.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -157,8 +157,8 @@
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/102_reg.gif" alt="Spiced policy in paired example 102.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/102_reg.gif" alt="Regularized policy in paired example 102.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -168,15 +168,15 @@
             <div class="comparison-body">
               <p class="comparison-kicker">Example 102</p>
               <h3>Awkward behavior avoided</h3>
-              <p>The unregularized rollout can avoid impact while still behaving awkwardly; spiced self-play produces a smoother interaction.</p>
+              <p>The unregularized rollout can avoid impact while still behaving awkwardly; regularized self-play produces a smoother interaction.</p>
             </div>
           </article>
 
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/111_reg.gif" alt="Spiced policy in paired example 111.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/111_reg.gif" alt="Regularized policy in paired example 111.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -186,15 +186,15 @@
             <div class="comparison-body">
               <p class="comparison-kicker">Example 111</p>
               <h3>Less goal-rush behavior</h3>
-              <p>The spiced policy remains closer to ordinary traffic flow, while unregularized self-play more aggressively accelerates toward the target.</p>
+              <p>The regularized policy remains closer to ordinary traffic flow, while unregularized self-play more aggressively accelerates toward the target.</p>
             </div>
           </article>
 
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/166_reg.gif" alt="Spiced policy in paired example 166.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/166_reg.gif" alt="Regularized policy in paired example 166.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -204,15 +204,15 @@
             <div class="comparison-body">
               <p class="comparison-kicker">Example 166</p>
               <h3>Highway pacing</h3>
-              <p>The unregularized policy tends to close gaps quickly, while the spiced policy tracks surrounding traffic more conservatively.</p>
+              <p>The unregularized policy tends to close gaps quickly, while the regularized policy tracks surrounding traffic more conservatively.</p>
             </div>
           </article>
 
           <article class="comparison-card">
             <div class="comparison-pair">
               <figure class="comparison-panel">
-                <span class="comparison-label comparison-label-spiced">Spiced</span>
-                <img src="comparison_selected/382_reg.gif" alt="Spiced policy in paired example 382.">
+                <span class="comparison-label comparison-label-spiced">Regularized</span>
+                <img src="comparison_selected/382_reg.gif" alt="Regularized policy in paired example 382.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -332,8 +332,8 @@
             <article class="comparison-card">
               <div class="comparison-pair">
                 <figure class="comparison-panel">
-                  <span class="comparison-label comparison-label-spiced">Spiced</span>
-                  <img src="comparison_selected/210_reg.gif" alt="Spiced policy failure comparison in example 210.">
+                  <span class="comparison-label comparison-label-spiced">Regularized</span>
+                  <img src="comparison_selected/210_reg.gif" alt="Regularized policy failure comparison in example 210.">
                 </figure>
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-unreg">Unregularized</span>
@@ -343,15 +343,15 @@
               <div class="comparison-body">
                 <p class="comparison-kicker">Failure example 210</p>
                 <h3>Different collisions in the same scene</h3>
-                <p>Both policies fail in replay, but the paired rollout shows how the interaction geometry changes between spiced and unregularized self-play.</p>
+                <p>Both policies fail in replay, but the paired rollout shows how the interaction geometry changes between regularized and unregularized self-play.</p>
               </div>
             </article>
 
             <article class="comparison-card">
               <div class="comparison-pair">
                 <figure class="comparison-panel">
-                  <span class="comparison-label comparison-label-spiced">Spiced</span>
-                  <img src="comparison_selected/607_reg.gif" alt="Spiced policy failure comparison in example 607.">
+                  <span class="comparison-label comparison-label-spiced">Regularized</span>
+                  <img src="comparison_selected/607_reg.gif" alt="Regularized policy failure comparison in example 607.">
                 </figure>
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-unreg">Unregularized</span>
