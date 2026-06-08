@@ -7,7 +7,7 @@
   --line: #ddd4c7;
   --blue: #0877bd;
   --blue-deep: #045989;
-  --pink: #e85c9a;
+  --warm: #f0a21a;
   --green: #58ae70;
   --gold: #c99a32;
   --shadow: 0 18px 48px rgba(34, 28, 20, 0.12);
@@ -51,7 +51,7 @@ button {
 }
 
 ::selection {
-  background: rgba(232, 92, 154, 0.24);
+  background: rgba(240, 162, 26, 0.28);
 }
 
 .skip-link {
@@ -99,40 +99,6 @@ button {
   font-weight: 780;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.brand-mark {
-  position: relative;
-  flex: 0 0 auto;
-  width: 54px;
-  height: 24px;
-}
-
-.brand-mark::before,
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  border: 2px solid;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.76);
-}
-
-.brand-mark::before {
-  top: 2px;
-  left: 0;
-  width: 22px;
-  height: 14px;
-  border-color: var(--blue);
-  transform: rotate(-3deg);
-}
-
-.brand-mark::after {
-  right: 2px;
-  bottom: 2px;
-  width: 22px;
-  height: 12px;
-  border-color: var(--pink);
-  transform: rotate(-3deg);
 }
 
 .site-nav {
@@ -331,7 +297,7 @@ button {
 
 .metric strong {
   display: block;
-  color: #fbe6f0;
+  color: #ffe2a3;
   font-size: 3.45rem;
   line-height: 1;
 }
@@ -430,7 +396,7 @@ button {
 }
 
 .detail-grid article:nth-child(2) {
-  border-left-color: var(--pink);
+  border-left-color: var(--warm);
 }
 
 .detail-grid article:nth-child(3) {
@@ -748,13 +714,13 @@ button {
 .road-scene.replay {
   background:
     linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.75) 46%, rgba(255, 255, 255, 0.75) 49%, transparent 49%),
-    linear-gradient(12deg, rgba(88, 174, 112, 0.16), rgba(232, 92, 154, 0.14));
+    linear-gradient(12deg, rgba(88, 174, 112, 0.16), rgba(240, 162, 26, 0.15));
 }
 
 .road-scene.contrast {
   background:
     linear-gradient(0deg, transparent 46%, rgba(255, 255, 255, 0.75) 46%, rgba(255, 255, 255, 0.75) 49%, transparent 49%),
-    linear-gradient(12deg, rgba(232, 92, 154, 0.15), rgba(201, 154, 50, 0.16));
+    linear-gradient(12deg, rgba(240, 162, 26, 0.15), rgba(201, 154, 50, 0.16));
 }
 
 .road-scene span {
@@ -781,7 +747,7 @@ button {
 .road-scene span:nth-child(3) {
   left: 48%;
   top: 61%;
-  border-color: var(--pink);
+  border-color: var(--warm);
   transform: rotate(-12deg);
 }
 
@@ -1009,6 +975,11 @@ button {
   .affiliations,
   .hero-copy {
     max-width: 34rem;
+  }
+
+  .authors,
+  .affiliations {
+    overflow-wrap: anywhere;
   }
 
   .authors {
