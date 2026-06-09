@@ -106,11 +106,12 @@
             <p class="media-explainer">
               Each card shows the same held-out human-replay scenario with the
               regularized policy on the left and the unregularized policy on the
-              right. Both learned agents are goal-conditioned: the blue ego
-              vehicle is controlled by the policy, the green circle marks its
-              goal, and green vehicles replay recorded human trajectories. Both
-              policies share the same minimal reward: +1 when I[goal] is true,
-              and -1 for off-road or collision events.
+              right. In both rollouts, the learned ego agent is goal-conditioned:
+              the blue vehicle is controlled by the policy, the green circle
+              marks its goal, and the other green vehicles replay recorded human
+              trajectories. The two policies use the same minimal reward: +1
+              when the goal indicator I[goal] is true, and -1 for off-road or
+              collision events.
             </p>
           </div>
         </div>
