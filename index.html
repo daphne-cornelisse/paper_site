@@ -89,16 +89,32 @@
         <div class="section-heading">
           <p class="eyebrow">Rollouts</p>
           <div>
-            <h2>Paired rollouts compare regularized and unregularized policy behavior.</h2>
+            <div class="media-title-row">
+              <h2>Paired rollouts compare regularized and unregularized policy behavior.</h2>
+              <button
+                class="rollout-toggle"
+                type="button"
+                aria-expanded="true"
+                aria-controls="rollout-comparisons"
+                data-collapse-toggle
+                data-expanded-label="Hide rollouts"
+                data-collapsed-label="Show rollouts"
+              >
+                <span data-collapse-label>Hide rollouts</span>
+              </button>
+            </div>
             <p class="media-explainer">
               Each card shows the same held-out human-replay scenario with the
               regularized policy on the left and the unregularized policy on the
-              right. The blue ego vehicle is controlled by the learned policy,
-              while green vehicles replay recorded human trajectories.
+              right. Both learned agents are goal-conditioned: the blue ego
+              vehicle is controlled by the policy, the green circle marks its
+              goal, and green vehicles replay recorded human trajectories. Both
+              policies share the same minimal reward: +1 when I[goal] is true,
+              and -1 for off-road or collision events.
             </p>
           </div>
         </div>
-        <div class="comparison-grid">
+        <div class="comparison-grid" id="rollout-comparisons">
           <article class="comparison-card is-featured">
             <div class="comparison-pair">
               <figure class="comparison-panel">

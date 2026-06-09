@@ -50,6 +50,10 @@ button {
   font: inherit;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 ::selection {
   background: rgba(240, 162, 26, 0.28);
 }
@@ -468,6 +472,57 @@ button {
 
 .media-section {
   width: min(1360px, calc(100% - var(--page-inset)));
+}
+
+.media-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+  max-width: 980px;
+}
+
+.media-title-row h2 {
+  flex: 1 1 auto;
+}
+
+.rollout-toggle {
+  flex: 0 0 auto;
+  margin-top: 8px;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: rgba(93, 104, 112, 0.78);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 820;
+  line-height: 1.2;
+  padding: 3px 0;
+  transition: border-color 160ms ease, color 160ms ease;
+  white-space: nowrap;
+}
+
+.rollout-toggle::before {
+  content: "-";
+  display: inline-block;
+  margin-right: 6px;
+  color: var(--blue-deep);
+  font-weight: 900;
+}
+
+.rollout-toggle[aria-expanded="false"]::before {
+  content: "+";
+}
+
+.rollout-toggle:hover,
+.rollout-toggle:focus-visible {
+  border-bottom-color: currentColor;
+  color: var(--blue-deep);
+}
+
+.rollout-toggle:focus-visible {
+  outline: 2px solid rgba(8, 119, 189, 0.32);
+  outline-offset: 4px;
 }
 
 .media-explainer {
@@ -918,6 +973,15 @@ button {
   .section-heading {
     gap: 6px;
     margin-bottom: 30px;
+  }
+
+  .media-title-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rollout-toggle {
+    margin-top: 0;
   }
 
   .comparison-grid,

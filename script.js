@@ -43,6 +43,31 @@ document.querySelectorAll("[data-copy]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-collapse-toggle]").forEach((button) => {
+  const targetId = button.getAttribute("aria-controls");
+  const target = targetId ? document.getElementById(targetId) : null;
+  const label = button.querySelector("[data-collapse-label]");
+  const expandedLabel = button.dataset.expandedLabel || "Hide";
+  const collapsedLabel = button.dataset.collapsedLabel || "Show";
+
+  if (!target) return;
+
+  const setExpanded = (isExpanded) => {
+    button.setAttribute("aria-expanded", String(isExpanded));
+    target.hidden = !isExpanded;
+
+    if (label) {
+      label.textContent = isExpanded ? expandedLabel : collapsedLabel;
+    }
+  };
+
+  button.addEventListener("click", () => {
+    setExpanded(button.getAttribute("aria-expanded") !== "true");
+  });
+
+  setExpanded(button.getAttribute("aria-expanded") !== "false" && !target.hidden);
+});
+
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const slides = Array.from(carousel.querySelectorAll("[data-slide]"));
   const previous = carousel.querySelector("[data-carousel-prev]");
