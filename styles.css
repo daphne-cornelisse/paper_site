@@ -532,6 +532,51 @@ button {
   font-size: 1.05rem;
 }
 
+.overlay-rollout-showcase {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.overlay-feature,
+.overlay-card {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(23, 32, 37, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.overlay-feature video,
+.overlay-card video {
+  display: block;
+  width: 100%;
+  background: #10191e;
+}
+
+.overlay-feature video {
+  aspect-ratio: 16 / 9;
+}
+
+.overlay-card video {
+  aspect-ratio: 16 / 9;
+}
+
+.overlay-feature figcaption,
+.overlay-card figcaption {
+  border-top: 1px solid rgba(23, 32, 37, 0.09);
+  color: var(--muted);
+  font-size: 0.94rem;
+  padding: 15px 18px 17px;
+}
+
+.overlay-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .comparison-grid,
 .failure-comparison-grid {
   display: grid;
@@ -986,6 +1031,7 @@ button {
 
   .comparison-grid,
   .failure-comparison-grid,
+  .overlay-video-grid,
   .media-grid {
     grid-template-columns: 1fr;
   }

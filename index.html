@@ -90,32 +90,76 @@
           <p class="eyebrow">Rollouts</p>
           <div>
             <div class="media-title-row">
-              <h2>Paired rollouts compare regularized and unregularized policy behavior.</h2>
+              <h2>Overlay rollouts compare regularized and unregularized behavior in the same view.</h2>
               <button
                 class="rollout-toggle"
                 type="button"
-                aria-expanded="true"
+                aria-expanded="false"
                 aria-controls="rollout-comparisons"
                 data-collapse-toggle
-                data-expanded-label="Hide rollouts"
-                data-collapsed-label="Show rollouts"
+                data-expanded-label="Hide paired GIF comparisons"
+                data-collapsed-label="View paired GIF comparisons"
               >
-                <span data-collapse-label>Hide rollouts</span>
+                <span data-collapse-label>View paired GIF comparisons</span>
               </button>
             </div>
             <p class="media-explainer">
-              Each card shows the same held-out human-replay scenario with the
-              regularized policy on the left and the unregularized policy on the
-              right. In both rollouts, the learned ego agent is goal-conditioned:
-              the blue vehicle is controlled by the policy, the green circle
-              marks its goal, and the other green vehicles replay recorded human
-              trajectories. The two policies use the same minimal reward: +1
-              when the goal indicator I[goal] is true, and -1 for off-road or
-              collision events.
+              These videos align paired held-out human-replay scenarios so the
+              regularized policy and unregularized policy can be compared in a
+              shared camera view. In each rollout, the learned ego agent is
+              goal-conditioned: the blue vehicle is controlled by the policy,
+              the green circle marks its goal, and the other green vehicles
+              replay recorded human trajectories. Both policies use the same
+              minimal reward: +1 when the goal indicator I[goal] is true, and
+              -1 for off-road or collision events.
             </p>
           </div>
         </div>
-        <div class="comparison-grid" id="rollout-comparisons">
+
+        <div class="overlay-rollout-showcase" aria-label="Aligned rollout overlay videos">
+          <figure class="overlay-feature">
+            <video
+              src="assets/overlay-rollouts/rollout-overlay-2x2.mp4"
+              poster="assets/overlay-rollouts/rollout-overlay-2x2.png"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+            ></video>
+            <figcaption>
+              Four paired scenarios rendered as aligned overlays. Blue shows the
+              regularized policy; yellow shows the unregularized policy.
+            </figcaption>
+          </figure>
+
+          <div class="overlay-video-grid" aria-label="Single-scene aligned overlays">
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-312.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-312.png"
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Example 312: cross-traffic negotiation.</figcaption>
+            </figure>
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-420.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-420.png"
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Example 420: dense queue interaction.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="comparison-grid" id="rollout-comparisons" hidden>
           <article class="comparison-card is-featured">
             <div class="comparison-pair">
               <figure class="comparison-panel">
