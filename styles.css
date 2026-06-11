@@ -538,6 +538,18 @@ button {
   font-size: 1.05rem;
 }
 
+.media-token {
+  font-weight: 850;
+}
+
+.media-token-blue {
+  color: #0476bc;
+}
+
+.media-token-green {
+  color: #267c48;
+}
+
 .overlay-rollout-showcase {
   display: grid;
   gap: 18px;
