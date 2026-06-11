@@ -543,11 +543,15 @@ button {
 }
 
 .media-token-blue {
-  color: #0476bc;
+  color: rgb(0, 132, 255);
+}
+
+.media-token-yellow {
+  color: rgb(255, 191, 36);
 }
 
 .media-token-green {
-  color: #267c48;
+  color: rgb(19, 120, 48);
 }
 
 .overlay-rollout-showcase {
