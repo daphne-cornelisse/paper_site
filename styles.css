@@ -554,6 +554,10 @@ button {
   color: rgb(19, 120, 48);
 }
 
+.media-token-replay {
+  color: rgb(88, 104, 92);
+}
+
 .overlay-rollout-showcase {
   display: grid;
   gap: 18px;
