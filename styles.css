@@ -525,9 +525,15 @@ button {
   outline-offset: 4px;
 }
 
+.media-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+
 .media-explainer {
   max-width: 820px;
-  margin: 18px 0 0;
+  margin: 0;
   color: #323c42;
   font-size: 1.05rem;
 }
@@ -1101,6 +1107,12 @@ button {
   .lede p,
   .abstract-copy p {
     font-size: 1rem;
+  }
+
+  .media-explainer {
+    font-size: 0.97rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
   }
 
   .hero-actions {

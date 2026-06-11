@@ -89,8 +89,17 @@
         <div class="section-heading">
           <p class="eyebrow">Rollouts</p>
           <div>
-            <div class="media-title-row">
-              <h2>Overlay rollouts compare regularized and unregularized behavior in the same view.</h2>
+            <p class="media-explainer">
+              These videos align paired held-out human-replay scenarios so the
+              regularized policy and unregularized policy can be compared in a
+              shared camera view. In each rollout, the learned ego agent is
+              goal-conditioned: the blue vehicle is controlled by the policy,
+              the green circle marks its goal, and the other green vehicles
+              replay recorded human trajectories. Both policies use the same
+              minimal reward: +1 when the goal indicator I[goal] is true, and
+              -1 for off-road or collision events.
+            </p>
+            <div class="media-actions">
               <button
                 class="rollout-toggle"
                 type="button"
@@ -103,21 +112,11 @@
                 <span data-collapse-label>View paired GIF comparisons</span>
               </button>
             </div>
-            <p class="media-explainer">
-              These videos align paired held-out human-replay scenarios so the
-              regularized policy and unregularized policy can be compared in a
-              shared camera view. In each rollout, the learned ego agent is
-              goal-conditioned: the blue vehicle is controlled by the policy,
-              the green circle marks its goal, and the other green vehicles
-              replay recorded human trajectories. Both policies use the same
-              minimal reward: +1 when the goal indicator I[goal] is true, and
-              -1 for off-road or collision events.
-            </p>
           </div>
         </div>
 
-        <div class="overlay-rollout-showcase" aria-label="Aligned rollout overlay videos">
-          <div class="overlay-video-grid" aria-label="Single-scene aligned overlays">
+        <div class="overlay-rollout-showcase" aria-label="Aligned policy videos">
+          <div class="overlay-video-grid" aria-label="Single-scene aligned policy comparisons">
             <figure class="overlay-card">
               <video
                 src="assets/overlay-rollouts/rollout-overlay-312.mp4"
@@ -128,7 +127,7 @@
                 playsinline
                 controls
               ></video>
-              <figcaption>Example 312: cross-traffic negotiation.</figcaption>
+              <figcaption>Cross-traffic negotiation.</figcaption>
             </figure>
             <figure class="overlay-card">
               <video
@@ -140,7 +139,7 @@
                 playsinline
                 controls
               ></video>
-              <figcaption>Example 420: dense queue interaction.</figcaption>
+              <figcaption>Dense queue interaction.</figcaption>
             </figure>
             <figure class="overlay-card">
               <video
@@ -152,7 +151,7 @@
                 playsinline
                 controls
               ></video>
-              <figcaption>Example 460: waiting in traffic.</figcaption>
+              <figcaption>Waiting in traffic.</figcaption>
             </figure>
             <figure class="overlay-card">
               <video
@@ -164,7 +163,55 @@
                 playsinline
                 controls
               ></video>
-              <figcaption>Example 102: awkward behavior avoided.</figcaption>
+              <figcaption>Awkward behavior avoided.</figcaption>
+            </figure>
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-244.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-244.png"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Room left around replayed traffic.</figcaption>
+            </figure>
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-300.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-300.png"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Measured progress near the goal.</figcaption>
+            </figure>
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-380.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-380.png"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Cautious timing through a busy interaction.</figcaption>
+            </figure>
+            <figure class="overlay-card">
+              <video
+                src="assets/overlay-rollouts/rollout-overlay-792.mp4"
+                poster="assets/overlay-rollouts/rollout-overlay-792.png"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+              ></video>
+              <figcaption>Patient interaction around nearby vehicles.</figcaption>
             </figure>
           </div>
         </div>
@@ -174,15 +221,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/312_reg.gif" alt="Regularized policy in paired example 312.">
+                <img src="comparison_selected_2/312_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/312_unreg.gif" alt="Unregularized policy in paired example 312.">
+                <img src="comparison_selected_2/312_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 312</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Negotiating cross traffic</h3>
               <p>Regularized self-play keeps a more legible path through the interaction, while the unregularized policy presses more directly toward the goal.</p>
             </div>
@@ -192,15 +239,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/420_reg.gif" alt="Regularized policy in paired example 420.">
+                <img src="comparison_selected_2/420_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/420_unreg.gif" alt="Unregularized policy in paired example 420.">
+                <img src="comparison_selected_2/420_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 420</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Dense queue interaction</h3>
               <p>The regularized policy stays with the flow of replayed vehicles; the unregularized policy is less patient in the same scene.</p>
             </div>
@@ -210,15 +257,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/460_reg.gif" alt="Regularized policy in paired example 460.">
+                <img src="comparison_selected_2/460_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/460_unreg.gif" alt="Unregularized policy in paired example 460.">
+                <img src="comparison_selected_2/460_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 460</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Waiting in traffic</h3>
               <p>With the human-data anchor, the ego vehicle is more willing to wait instead of exploiting every narrow opening.</p>
             </div>
@@ -228,15 +275,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/102_reg.gif" alt="Regularized policy in paired example 102.">
+                <img src="comparison_selected_2/102_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/102_unreg.gif" alt="Unregularized policy in paired example 102.">
+                <img src="comparison_selected_2/102_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 102</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Awkward behavior avoided</h3>
               <p>The unregularized rollout can avoid impact while still behaving awkwardly; regularized self-play produces a smoother interaction.</p>
             </div>
@@ -246,15 +293,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/297_reg.gif" alt="Regularized policy in paired example 297.">
+                <img src="comparison_selected_2/297_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/297_unreg.gif" alt="Unregularized policy in paired example 297.">
+                <img src="comparison_selected_2/297_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 297</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Cautious merge timing</h3>
               <p>The regularized policy leaves more time around nearby replayed vehicles, while the unregularized rollout takes a tighter interaction.</p>
             </div>
@@ -264,15 +311,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/300_reg.gif" alt="Regularized policy in paired example 300.">
+                <img src="comparison_selected_2/300_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/300_unreg.gif" alt="Unregularized policy in paired example 300.">
+                <img src="comparison_selected_2/300_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 300</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Social pacing</h3>
               <p>The paired replay shows a more measured regularized trajectory compared with the unregularized policy's more direct progress.</p>
             </div>
@@ -282,15 +329,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/382_reg.gif" alt="Regularized policy in paired example 382.">
+                <img src="comparison_selected_2/382_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/382_unreg.gif" alt="Unregularized policy in paired example 382.">
+                <img src="comparison_selected_2/382_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 382</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Social spacing</h3>
               <p>The paired replay highlights the behavioral difference behind the aggregate social-driving metrics.</p>
             </div>
@@ -300,15 +347,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/244_reg.gif" alt="Regularized policy in paired example 244.">
+                <img src="comparison_selected_2/244_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/244_unreg.gif" alt="Unregularized policy in paired example 244.">
+                <img src="comparison_selected_2/244_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 244</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Gap selection</h3>
               <p>The regularized policy leaves more room around replayed traffic, while the unregularized rollout takes a tighter, more direct line.</p>
             </div>
@@ -318,15 +365,15 @@
             <div class="comparison-pair">
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-spiced">Regularized</span>
-                <img src="comparison_selected_2/792_reg.gif" alt="Regularized policy in paired example 792.">
+                <img src="comparison_selected_2/792_reg.gif" alt="Regularized policy in paired rollout.">
               </figure>
               <figure class="comparison-panel">
                 <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                <img src="comparison_selected_2/792_unreg.gif" alt="Unregularized policy in paired example 792.">
+                <img src="comparison_selected_2/792_unreg.gif" alt="Unregularized policy in paired rollout.">
               </figure>
             </div>
             <div class="comparison-body">
-              <p class="comparison-kicker">Example 792</p>
+              <p class="comparison-kicker">Paired rollout</p>
               <h3>Patient interaction</h3>
               <p>The paired replay shows the regularized agent preserving a more cautious interaction pattern around nearby human-driven vehicles.</p>
             </div>
@@ -439,15 +486,15 @@
               <div class="comparison-pair">
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-spiced">Regularized</span>
-                  <img src="comparison_selected_2/210_reg.gif" alt="Regularized policy failure comparison in example 210.">
+                  <img src="comparison_selected_2/210_reg.gif" alt="Regularized policy failure comparison.">
                 </figure>
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                  <img src="comparison_selected_2/210_unreg.gif" alt="Unregularized policy failure comparison in example 210.">
+                  <img src="comparison_selected_2/210_unreg.gif" alt="Unregularized policy failure comparison.">
                 </figure>
               </div>
               <div class="comparison-body">
-                <p class="comparison-kicker">Failure example 210</p>
+                <p class="comparison-kicker">Failure comparison</p>
                 <h3>Different collisions in the same scene</h3>
                 <p>Both policies fail in replay, but the paired rollout shows regularized agents display more cautious behavior around other agents.</p>
               </div>
@@ -457,15 +504,15 @@
               <div class="comparison-pair">
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-spiced">Regularized</span>
-                  <img src="comparison_selected_2/607_reg.gif" alt="Regularized policy failure comparison in example 607.">
+                  <img src="comparison_selected_2/607_reg.gif" alt="Regularized policy failure comparison.">
                 </figure>
                 <figure class="comparison-panel">
                   <span class="comparison-label comparison-label-unreg">Unregularized</span>
-                  <img src="comparison_selected_2/607_unreg.gif" alt="Unregularized policy failure comparison in example 607.">
+                  <img src="comparison_selected_2/607_unreg.gif" alt="Unregularized policy failure comparison.">
                 </figure>
               </div>
               <div class="comparison-body">
-                <p class="comparison-kicker">Failure example 607</p>
+                <p class="comparison-kicker">Failure comparison</p>
                 <h3>Representative replay failure</h3>
                 <p>This pair illustrates a remaining failure mode under human replay, including cases where the controlled vehicle is contacted from behind.</p>
               </div>
