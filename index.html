@@ -18,11 +18,11 @@
         <span>Human-like autonomy</span>
       </a>
       <nav class="site-nav" aria-label="Page sections">
+        <a href="#abstract">Abstract</a>
         <a href="#media">Rollouts</a>
         <a href="#overview">Overview</a>
         <a href="#results">Results</a>
         <a href="#evaluation">Evaluation</a>
-        <a href="#abstract">Abstract</a>
       </nav>
     </header>
 
@@ -79,6 +79,30 @@
         <div class="metric">
           <strong>15 hrs</strong>
           <span>end-to-end training on one consumer GPU</span>
+        </div>
+      </section>
+
+      <section class="section abstract-section" id="abstract">
+        <div class="section-heading">
+          <p class="eyebrow">Abstract</p>
+          <h2>Spiced self-play adds a small behavioral anchor to scalable self-play.</h2>
+        </div>
+        <div class="abstract-copy">
+          <p>
+            Self-play reinforcement learning can substitute cheap, large-scale
+            simulation for large human driving datasets, but policies trained
+            only through self-play can converge to effective yet incompatible
+            driving conventions. Prior work often addresses this through reward
+            engineering and domain randomization.
+          </p>
+          <p>
+            We introduce spiced self-play: policies trained with a minimal
+            safe-goal-reaching reward, over 60 years of self-play simulation, and
+            30 minutes of human driving data as a behavioral anchor. The
+            resulting policies coordinate with logged human trajectories using
+            2,500× less human data than imitation-learning baselines, and the
+            full pipeline runs in 15 hours on a single consumer-grade GPU.
+          </p>
         </div>
       </section>
 
@@ -518,30 +542,6 @@
               </div>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="section abstract-section" id="abstract">
-        <div class="section-heading">
-          <p class="eyebrow">Abstract</p>
-          <h2>Spiced self-play adds a small behavioral anchor to scalable self-play.</h2>
-        </div>
-        <div class="abstract-copy">
-          <p>
-            Self-play reinforcement learning can substitute cheap, large-scale
-            simulation for large human driving datasets, but policies trained
-            only through self-play can converge to effective yet incompatible
-            driving conventions. Prior work often addresses this through reward
-            engineering and domain randomization.
-          </p>
-          <p>
-            We introduce spiced self-play: policies trained with a minimal
-            safe-goal-reaching reward, over 60 years of self-play simulation, and
-            30 minutes of human driving data as a behavioral anchor. The
-            resulting policies coordinate with logged human trajectories using
-            2,500× less human data than imitation-learning baselines, and the
-            full pipeline runs in 15 hours on a single consumer-grade GPU.
-          </p>
         </div>
       </section>
 
